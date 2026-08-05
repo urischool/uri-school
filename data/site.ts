@@ -277,33 +277,190 @@ export const schools: School[] = [
   // GENERATED_STANDARD_SCHOOL_PAGES_END
 ];
 
+const schoolTypeContext: Record<School["type"], { shortLabel: string; classKeyword: string; lessonFocus: string; imageMode: "international" | "typeSpecific" }> = {
+  "international-high-school": {
+    shortLabel: "국제고",
+    classKeyword: "국제고 내신",
+    lessonFocus: "국제계열 과목, 수행평가, 과목별 학교 자료 흐름",
+    imageMode: "international"
+  },
+  "foreign-language-high-school": {
+    shortLabel: "외고",
+    classKeyword: "외고 내신",
+    lessonFocus: "전공어, 심화영어, 수행평가와 발표·토론 과제",
+    imageMode: "typeSpecific"
+  },
+  "science-high-school": {
+    shortLabel: "과학고",
+    classKeyword: "과학고 내신",
+    lessonFocus: "심화수학, 고급과학, 탐구·실험 수행평가",
+    imageMode: "typeSpecific"
+  },
+  "autonomous-private-high-school": {
+    shortLabel: "전사고",
+    classKeyword: "전사고 내신",
+    lessonFocus: "심화 과목, 토론·발표, 수행평가와 학생부 흐름",
+    imageMode: "typeSpecific"
+  },
+  "regional-autonomous-private-high-school": {
+    shortLabel: "자사고",
+    classKeyword: "자사고 내신",
+    lessonFocus: "학교별 고난도 문항, 수행평가, 주요 과목 학습 루틴",
+    imageMode: "typeSpecific"
+  },
+  "top-general-high-school": {
+    shortLabel: "갓반고",
+    classKeyword: "갓반고 내신",
+    lessonFocus: "학교별 시험 범위, 수행평가, 과목별 반복 출제 유형",
+    imageMode: "typeSpecific"
+  },
+  "arts-high-school": {
+    shortLabel: "예고",
+    classKeyword: "예고 내신",
+    lessonFocus: "실기 일정과 병행하는 국어·영어·수학 내신관리",
+    imageMode: "typeSpecific"
+  }
+};
+
+const subjectPageKeywords: Record<string, { core: string[]; checks: string[]; curriculum: string[]; featureHint: string }> = {
+  korean: {
+    core: ["학교 지문", "문법", "문학", "독서", "서술형 답안"],
+    checks: ["최근 시험지와 지문 분석 상태", "문법 적용과 선지 판단", "서술형 답안 감점 요소", "수행평가 일정"],
+    curriculum: ["지문 분석", "문법 적용", "서술형", "수행평가"],
+    featureHint: "지문 근거, 문법 적용, 서술형 답안 완성도를 학교 채점 기준에 맞춰 관리합니다."
+  },
+  english: {
+    core: ["심화영어", "독해", "작문", "어법", "발표·토론"],
+    checks: ["본문과 부교재 이해도", "어법·어휘 오답 유형", "작문과 서술형 답안", "발표·토론 수행평가"],
+    curriculum: ["본문 분석", "어법 정리", "심화 독해", "작문·수행평가"],
+    featureHint: "심화영어, 독해, 작문, 어법 변형을 학교 자료 흐름에 맞춰 연결합니다."
+  },
+  math: {
+    core: ["심화수학", "고급수학", "AP수학", "서술형", "고난도 변형"],
+    checks: ["단원별 개념 공백", "계산 실수와 조건 해석", "서술형 풀이 과정", "고난도 변형 문항"],
+    curriculum: ["개념 진단", "유형 분석", "서술형", "실전 모의"],
+    featureHint: "고급수학, 심화수학, AP수학처럼 난도가 올라가는 단원은 오답 원인을 세분화해 관리합니다."
+  },
+  social: {
+    core: ["개념 구조", "자료 해석", "정치와법", "경제", "사회문화"],
+    checks: ["개념 관계 이해도", "도표와 제시문 해석", "서술형 근거 표현", "탐구·보고서 수행평가"],
+    curriculum: ["개념 구조화", "자료 해석", "서술형", "탐구 과제"],
+    featureHint: "사회 과목은 암기보다 개념 관계와 자료 해석, 서술형 근거 제시를 함께 봐야 합니다."
+  },
+  science: {
+    core: ["탐구", "실험", "고급화학", "고급물리", "AP과학"],
+    checks: ["단원별 개념 공백", "탐구·실험 자료 해석", "계산형 문항 오답", "보고서·발표 수행평가"],
+    curriculum: ["개념 진단", "탐구 자료", "실험 해석", "AP과학 대비"],
+    featureHint: "탐구, 실험, 고급화학, 고급물리, 고급생명과학, AP과학 흐름을 단원별로 정리합니다."
+  },
+  performance: {
+    core: ["수행평가", "발표", "보고서", "토론", "제출물"],
+    checks: ["수행평가 일정", "평가 기준과 제출물 조건", "발표·토론 준비 상태", "지필고사와 겹치는 일정"],
+    curriculum: ["기준 확인", "자료 구성", "초안 점검", "최종 제출"],
+    featureHint: "수행평가는 지필고사 준비와 충돌하지 않도록 일정과 평가 기준을 먼저 나눠야 합니다."
+  },
+  "research-experiment": {
+    core: ["탐구", "실험", "보고서", "자료 해석", "발표"],
+    checks: ["탐구 주제와 가설", "실험 조건과 결과 해석", "보고서 구성", "발표 자료 완성도"],
+    curriculum: ["주제 설정", "실험 설계", "자료 해석", "보고서·발표"],
+    featureHint: "탐구/실험은 과정 기록, 자료 해석, 보고서 표현을 함께 관리해야 합니다."
+  },
+  "second-language": {
+    core: ["제2외국어", "어휘", "문법", "회화", "수행평가"],
+    checks: ["어휘와 표현 누적 상태", "문법 적용력", "회화·발표 준비", "제출물 수행평가"],
+    curriculum: ["어휘 누적", "문법 적용", "회화 표현", "수행평가"],
+    featureHint: "제2외국어는 어휘·문법·회화 표현을 짧은 주기로 반복해야 시험 직전 부담을 줄일 수 있습니다."
+  }
+};
+
+function getSchoolSubjectHeroImage(school: School) {
+  const context = schoolTypeContext[school.type];
+
+  if (school.slug === "goyang-international-high-school") {
+    return "/images/goyang-international-school-analysis.png";
+  }
+
+  if (school.slug === "seoul-international-high-school") {
+    return "/images/seoul-international-high-school-school-analysis.svg";
+  }
+
+  if (context.imageMode === "international") {
+    return `/images/${school.slug}-school-analysis.svg`;
+  }
+
+  return `/images/${school.slug}-school-analysis-v4.svg`;
+}
+
+function getSubjectPlan(subject: Subject) {
+  return subjectPageKeywords[subject.slug] ?? {
+    core: [subject.name, "학교 자료", "시험 범위", "수행평가", "오답 관리"],
+    checks: ["최근 시험지와 현재 등급", "학교 프린트와 부교재 정리 상태", "수행평가 일정", "목표 등급과 학습 가능 시간"],
+    curriculum: ["현재 진단", "학교 자료 분석", "내신대비", "실전 점검"],
+    featureHint: `${subject.name} 내신은 학교 자료와 학생 오답을 함께 확인해야 방향이 선명해집니다.`
+  };
+}
+
 function makeSubjectPage(school: School, subject: Subject): SchoolSubjectPage {
   const subjectLabel = subject.name;
+  const context = schoolTypeContext[school.type];
+  const plan = getSubjectPlan(subject);
+  const subjectKeywords = plan.core.join(" · ");
+  const schoolKeyword = `${school.name} ${subjectLabel}`;
+  const academyKeyword = `${school.name} ${subjectLabel} 학원`;
+  const tutorKeyword = `${school.name} ${subjectLabel} 과외`;
+
   return {
     schoolSlug: school.slug,
     subjectSlug: subject.slug,
-    heroImage: school.slug === "seoul-international-high-school" ? "/images/seoul-international-high-school-school-analysis.svg" : "/images/goyang-international-school-analysis.png",
-    h1: `${school.name} ${subjectLabel} 내신대비`,
-    summary: `${school.name} ${subjectLabel} 내신은 학교 자료, 수행평가, 시험 범위, 학생 현재상황을 함께 확인해 설계합니다.`,
+    heroImage: getSchoolSubjectHeroImage(school),
+    h1: `${schoolKeyword} 내신대비`,
+    summary: `${schoolKeyword} 내신은 ${context.lessonFocus}을 ${subjectKeywords}와 함께 확인해 설계합니다. ${academyKeyword}, ${tutorKeyword}를 찾는 학생에게 필요한 학교별 대비 흐름을 정리했습니다.`,
     aiSummary: [
-      `${school.name} ${subjectLabel} 내신은 학교별 출제경향과 시험 범위 분석이 중요합니다.`,
-      `우리학교과외는 ${school.name} ${subjectLabel} 수업을 현재상황 진단, 학교별 자료 분석, 커리큘럼, FAQ 구조로 제공합니다.`,
-      `고양국제고 마스터 템플릿과 동일한 UI를 사용해 국제고 페이지 경험을 통일합니다.`
+      `${schoolKeyword} 내신은 ${context.classKeyword} 특성과 과목별 시험 범위 분석이 중요합니다.`,
+      `우리학교과외는 ${schoolKeyword} 수업을 현재상황 진단, 학교별 자료 분석, 커리큘럼, FAQ 구조로 제공합니다.`,
+      `${school.name} 과목 페이지는 ${context.shortLabel} 메인 페이지와 동일한 UI를 사용하고, ${subjectLabel} 검색 의도에 맞춘 내용만 학교별로 조정합니다.`
     ],
-    features: [`${school.name} 학교 자료 중심 대비`, `${subjectLabel} 수행평가 일정 반영`, "시험 직전 오답과 서술형 관리"],
-    currentChecks: ["최근 시험지와 현재 등급", "학교 프린트와 부교재 정리 상태", "수행평가 일정", "목표 등급과 학습 가능 시간"],
-    analysis: ["학교 시험 범위와 진도를 기준으로 계획을 세웁니다.", "학생 오답을 유형별로 분리합니다.", "시험 직전 실전 훈련으로 마무리합니다."],
+    features: [
+      `${school.name} 학교 자료 중심 대비`,
+      `${subjectLabel} 핵심 키워드: ${subjectKeywords}`,
+      plan.featureHint,
+      `${context.shortLabel} 수행평가와 시험 직전 루틴 관리`
+    ],
+    currentChecks: plan.checks,
+    analysis: [
+      `${school.name} 시험 범위와 수업 진도를 기준으로 계획을 세웁니다.`,
+      `${subjectLabel} 오답을 개념, 자료 해석, 서술형, 시간 관리로 분리합니다.`,
+      `${context.shortLabel} 평가 방식에 맞춰 수행평가와 지필고사 준비를 함께 조정합니다.`
+    ],
     curriculum: [
-      { title: "1단계 진단", items: ["현재 등급", "오답 원인", "목표 설정"] },
+      { title: "1단계 현재 진단", items: ["현재 등급", "오답 원인", "목표 설정"] },
       { title: "2단계 학교별 분석", items: ["교과서", "프린트", "부교재"] },
-      { title: "3단계 내신대비", items: ["개념", "유형", "서술형"] },
+      { title: `3단계 ${subjectLabel} 내신대비`, items: plan.curriculum.slice(0, 3) },
       { title: "4단계 실전 점검", items: ["오답", "시간 관리", "수행평가"] }
     ],
-    cases: [{ title: `${school.name} ${subjectLabel} 학습 변화 사례`, body: "대표적인 학습 변화 사례로, 학교 자료 분석과 오답 관리를 통해 시험 준비 방향을 명확히 잡는 방식입니다." }],
+    cases: [
+      {
+        title: `${schoolKeyword} 학습 변화 사례`,
+        body: `${school.name} 학생에게 필요한 ${subjectLabel} 학습 변화는 학교 자료 분석, 오답 원인 분리, 수행평가 일정 관리에서 시작합니다. 대표적인 학습 변화 사례로, ${context.shortLabel} 시험 범위에 맞춰 준비 방향을 명확히 잡는 방식입니다.`
+      }
+    ],
     faqs: [
-      { question: `${school.name} ${subjectLabel} 내신대비는 일반 과외와 무엇이 다른가요?`, answer: "학교 시험 범위, 수업 자료, 수행평가 일정, 학생 오답 원인을 함께 반영한다는 점이 다릅니다." },
-      { question: `${school.name} ${subjectLabel} 수행평가도 관리하나요?`, answer: "네. 발표, 보고서, 제출물, 서술형 기준을 과목별 내신 계획에 함께 반영합니다." },
-      { question: "상담 전에 무엇을 준비하면 좋나요?", answer: "최근 시험지, 학교 프린트, 수행평가 일정, 현재 등급과 목표 등급을 알려주시면 좋습니다." }
+      {
+        question: `${schoolKeyword} 내신대비는 일반 ${subjectLabel} 과외와 무엇이 다른가요?`,
+        answer: `${school.name} 시험 범위, 수업 자료, 수행평가 일정, 학생 오답 원인을 함께 반영한다는 점이 다릅니다. ${academyKeyword}나 ${tutorKeyword}를 찾을 때도 학교별 자료 반영 여부를 먼저 확인하는 것이 좋습니다.`
+      },
+      {
+        question: `${schoolKeyword} 수행평가도 관리하나요?`,
+        answer: `네. 발표, 보고서, 제출물, 서술형 기준을 ${subjectLabel} 내신 계획에 함께 반영합니다. ${context.shortLabel}은 수행평가와 지필고사 일정이 겹칠 수 있어 주간 계획 조정이 중요합니다.`
+      },
+      {
+        question: `${school.name} ${subjectLabel} 시험 직전에는 어떤 수업을 하나요?`,
+        answer: `시험 직전에는 ${plan.curriculum.join(", ")}을 중심으로 오답과 실전 감각을 정리합니다. 새로운 내용을 무리하게 넓히기보다 학교 자료와 반복 감점 요소를 먼저 줄입니다.`
+      },
+      {
+        question: "상담 전에 무엇을 준비하면 좋나요?",
+        answer: `최근 시험지, 학교 프린트, 수행평가 일정, 현재 등급과 목표 등급을 알려주시면 ${schoolKeyword} 내신 진단이 더 정확해집니다.`
+      }
     ]
   };
 }
@@ -313,6 +470,7 @@ export const schoolSubjectPages: SchoolSubjectPage[] = schools.flatMap((school) 
     .filter((subject): subject is Subject => Boolean(subject))
     .map((subject) => makeSubjectPage(school, subject))
 );
+
 
 
 

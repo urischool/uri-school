@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { LinkCard, PremiumReveal, ReportTitle } from "@/components/PageSections";
-import { schoolSubjectPages, subjects } from "@/data/site";
+import { schoolSubjectPages, schools, subjects } from "@/data/site";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
 import { getSchool, getSchoolSubjectPage, getSubject } from "@/lib/data";
 
@@ -629,9 +629,14 @@ const internationalSchoolNameMap: Record<string, string> = {
 };
 
 function adaptSchoolText(text: string, schoolSlug: string) {
-  const schoolName = internationalSchoolNameMap[schoolSlug];
-  if (!schoolName || schoolName === "고양국제고") return text;
-  return text.replaceAll("고양국제고", schoolName).replaceAll("고국고", schoolName).replaceAll("고양", schoolName.replace("국제고", ""));
+  const schoolName = schools.find((item) => item.slug === schoolSlug)?.name;
+  if (!schoolName || schoolName === "\uACE0\uC591\uAD6D\uC81C\uACE0") return text;
+
+  return text
+    .replaceAll("\uACE0\uC591\uAD6D\uC81C\uACE0\uB4F1\uD559\uAD50", schoolName + "\uB4F1\uD559\uAD50")
+    .replaceAll("\uACE0\uC591\uAD6D\uC81C\uACE0", schoolName)
+    .replaceAll("\uACE0\uAD6D\uACE0", schoolName)
+    .replaceAll("\uACE0\uC591", schoolName.replace(/\uAD6D\uC81C\uACE0|\uC678\uACE0|\uACFC\uACE0|\uACE0\uB4F1\uD559\uAD50|\uACE0$/g, ""));
 }
 
 function adaptTemplateValue(value: any, schoolSlug: string): any {
@@ -676,7 +681,7 @@ function GoyangSubjectTemplate({ detail: rawDetail, school, schemas, breadcrumbs
       <section className="goyang-math-curriculum-section"><div className="review-section-title"><span aria-hidden="true">✔</span><h2>{school.name} {detail.name} 수업 진행 방식</h2></div><div className="goyang-math-timeline">{goyangDefaultLessonProcess.map(([step, title, body]) => <article key={step}><span>{step}</span><strong>{title}</strong><p>{body}</p></article>)}</div></section>
       <section className="parent-review-section" aria-label={`${school.name} ${detail.name} 학부모 후기`}><div className="review-section-title"><span aria-hidden="true">✔</span><h2>{school.name} {detail.name} 학부모님 생생 후기</h2></div><p className="goyang-math-review-lead">{detail.reviewLead}</p><div className="parent-review-track">{detail.reviews.map(([initial, name, tag, review]: [string, string, string, string]) => <article className="parent-review-card" key={`${name}-${tag}`}><div className="review-card-head"><span className="review-avatar">{initial}</span><div><strong>{name}</strong><em>{tag}</em></div></div><p>{review}</p></article>)}</div><div className="review-slider-dots" aria-hidden="true"><span /><span /><span className="active" /></div></section>
       <section className="goyang-math-faq-section" id="faq"><div className="review-section-title"><span aria-hidden="true">✔</span><h2>{school.name} {detail.name} FAQ</h2></div><div className="faq-list">{detail.faqs.map(([question, answer]: [string, string]) => <details className="faq-item" key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
-      <section className="goyang-related-subjects-section"><div className="review-section-title"><span aria-hidden="true">✔</span><h2>{school.name} 다른 과목도 함께 준비해보세요</h2></div><div className="subject-card-grid">{((school.type === "foreign-language-high-school" || school.type === "science-high-school") ? getForeignRelatedSubjectCards(school) : goyangRelatedSubjectCards).map(([slug, label, body]) => <Link className="subject-card" href={`/schools/${school.slug}/${slug}`} key={slug}><strong>{label}</strong><span>{adaptSchoolText(body, school.slug)}</span><em>{label} 내신대비 확인</em></Link>)}</div><div className="related-school-links"><Link href={`/schools/${school.slug}`}>{school.name} 메인페이지</Link><Link href="/specialized-high-schools">특목고 전체 보기</Link></div></section>
+      <section className="goyang-related-subjects-section"><div className="review-section-title"><span aria-hidden="true">✔</span><h2>{school.name} 다른 과목도 함께 준비해보세요</h2></div><div className="subject-card-grid">{getForeignRelatedSubjectCards(school).map(([slug, label, body]) => <Link className="subject-card" href={`/schools/${school.slug}/${slug}`} key={slug}><strong>{label}</strong><span>{adaptSchoolText(body, school.slug)}</span><em>{label} 내신대비 확인</em></Link>)}</div><div className="related-school-links"><Link href={`/schools/${school.slug}`}>{school.name} 메인페이지</Link><Link href="/specialized-high-schools">특목고 전체 보기</Link></div></section>
       <section className="goyang-math-cta"><div><h2>{detail.ctaTitle}</h2><p>현재 등급, 최근 오답, 수행평가 일정, 목표 등급을 기준으로 필요한 수업 흐름을 정리해드립니다.</p></div><div className="goyang-cta-actions"><a className="button secondary phone-button" href="tel:010-5741-1134" aria-label="010-5741-1134 전화 상담"><span aria-hidden="true">☎</span><span>:010-5741-1134</span></a><Link className="button" href="/consultation">무료 상담 신청</Link></div></section>
     </main>
   </>;
@@ -1747,20 +1752,13 @@ export default function SchoolSubjectPage({ params }: { params: { school: string
 
 
           <section className="report-panel goyang-related-subjects-panel">
-            <ReportTitle title={`${school.name} 다른 과목도 함께 준비해보세요`} />
+            <ReportTitle title={`${school.name} \uB2E4\uB978 \uACFC\uBAA9\uB3C4 \uD568\uAED8 \uC900\uBE44\uD574\uBCF4\uC138\uC694`} />
             <div className="subject-card-grid">
-              {[
-                ["korean", "국어", "고양국제고 국어 내신은 학교 지문, 문법, 서술형 답안을 함께 정리해 감점 요소를 줄입니다."],
-                ["english", "영어", "고양국제고 영어 내신은 본문, 부교재, 어법, 서술형 변형까지 함께 관리합니다."],
-                ["math", "수학", "고양국제고 수학 내신은 개념, 유형, 서술형, 시험 직전 실전 훈련을 분리해 보완합니다."],
-                ["social", "사회", "고양국제고 사회 내신은 개념 구조와 자료 해석, 서술형 답안을 함께 준비합니다."],
-                ["science", "과학", "고양국제고 과학 내신은 개념, 실험 자료, 계산형 문항을 단원별로 정리합니다."],
-                ["second-language", "제2외국어", "고양국제고 제2외국어 내신은 어휘, 문법, 회화 표현과 수행평가 기준을 함께 관리합니다."]
-              ].map(([slug, label, body]) => (
+              {getForeignRelatedSubjectCards(school).map(([slug, label, body]) => (
                 <Link className="subject-card" href={`/schools/${school.slug}/${slug}`} key={slug}>
                   <strong>{label}</strong>
-                  <span>{body}</span>
-                  <em>{label} 내신대비 확인</em>
+                  <span>{adaptSchoolText(body, school.slug)}</span>
+                  <em>{`${label} \uB0B4\uC2E0\uB300\uBE44 \uD655\uC778`}</em>
                 </Link>
               ))}
             </div>
@@ -2093,6 +2091,19 @@ export default function SchoolSubjectPage({ params }: { params: { school: string
               { question: "상위권도 수업이 필요한가요?", answer: "고난도 변형과 서술형 감점 관리를 위해 효과가 있습니다." }
             ]}
           />
+        </section>
+
+        <section className="report-panel goyang-related-subjects-panel">
+          <ReportTitle title={`${school.name} \uB2E4\uB978 \uACFC\uBAA9\uB3C4 \uD568\uAED8 \uC900\uBE44\uD574\uBCF4\uC138\uC694`} />
+          <div className="subject-card-grid">
+            {getForeignRelatedSubjectCards(school).map(([slug, label, body]) => (
+              <Link className="subject-card" href={`/schools/${school.slug}/${slug}`} key={slug}>
+                <strong>{label}</strong>
+                <span>{adaptSchoolText(body, school.slug)}</span>
+                <em>{`${label} \uB0B4\uC2E0\uB300\uBE44 \uD655\uC778`}</em>
+              </Link>
+            ))}
+          </div>
         </section>
 
         <section className="report-panel" id="faq">

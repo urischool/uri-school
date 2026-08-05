@@ -12,7 +12,12 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`
   },
   description: site.description,
-  metadataBase: new URL(site.url)
+  metadataBase: new URL(site.url),
+  verification: {
+    other: {
+      "naver-site-verification": "f6ed2e4022b9cd0a483667acf6cdfe4d2b482725"
+    }
+  }
 };
 
 
