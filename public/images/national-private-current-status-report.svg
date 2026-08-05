@@ -1,0 +1,12 @@
+﻿<svg width="1200" height="620" viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" fill="#f5f8ff"/>
+  <rect x="60" y="70" width="1080" height="480" rx="30" fill="#fff" stroke="#d7e2ff" stroke-width="4"/>
+  <text x="120" y="165" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="48" font-weight="900" fill="#243d96">학생 현재상황 체크 리포트</text>
+  <text x="120" y="238" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="30" font-weight="700" fill="#444">현재 등급, 단원별 약점, 수행평가 일정, 목표 등급을 함께 확인합니다.</text>
+  <g font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="28" font-weight="800" fill="#243d96">
+    <rect x="120" y="310" width="230" height="84" rx="42" fill="#eef3ff"/><text x="160" y="364">현재 등급</text>
+    <rect x="386" y="310" width="230" height="84" rx="42" fill="#eef3ff"/><text x="426" y="364">취약 단원</text>
+    <rect x="652" y="310" width="230" height="84" rx="42" fill="#eef3ff"/><text x="692" y="364">수행평가</text>
+    <rect x="918" y="310" width="160" height="84" rx="42" fill="#eef3ff"/><text x="958" y="364">목표</text>
+  </g>
+</svg>

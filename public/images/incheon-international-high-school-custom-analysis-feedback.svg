@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="590" viewBox="0 0 960 590" role="img" aria-label="인천국제고 학교별 맞춤 내신분석">
+  <rect width="960" height="590" fill="#f7faff"/>
+  <rect x="0" y="0" width="960" height="118" fill="#233f98"/>
+  <text x="56" y="75" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="42" font-weight="1000" fill="#fff">인천국제고 맞춤 내신분석</text>
+  <rect x="58" y="170" width="250" height="300" rx="24" fill="#fff" stroke="#d5e2ff"/>
+  <rect x="354" y="170" width="250" height="300" rx="24" fill="#fff" stroke="#d5e2ff"/>
+  <rect x="650" y="170" width="250" height="300" rx="24" fill="#fff" stroke="#d5e2ff"/>
+  <text x="183" y="248" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="34" font-weight="1000" fill="#111827">학교 자료</text>
+  <text x="479" y="248" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="34" font-weight="1000" fill="#111827">출제경향</text>
+  <text x="775" y="248" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="34" font-weight="1000" fill="#111827">수행평가</text>
+  <text x="183" y="330" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="22" font-weight="800" fill="#41506a">프린트 · 부교재</text>
+  <text x="479" y="330" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="22" font-weight="800" fill="#41506a">중간 · 기말 대비</text>
+  <text x="775" y="330" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="22" font-weight="800" fill="#41506a">발표 · 보고서</text>
+  <text x="480" y="532" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="30" font-weight="900" fill="#243f9b">인천국제고 내신 흐름에 맞춰 과목별 수업을 설계합니다</text>
+</svg>

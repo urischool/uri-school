@@ -1,0 +1,11 @@
+﻿<svg width="1200" height="620" viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" fill="#f7faff"/>
+  <rect x="58" y="64" width="1084" height="492" rx="32" fill="#fff" stroke="#d7e2ff" stroke-width="4"/>
+  <text x="120" y="160" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="48" font-weight="900" fill="#243d96">학교별 맞춤 내신분석</text>
+  <text x="120" y="232" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="30" font-weight="700" fill="#444">학교 자료와 학생 오답을 기준으로 시험 전 루틴을 설계합니다.</text>
+  <g transform="translate(120 315)" font-family="Malgun Gothic, Pretendard, Arial, sans-serif">
+    <rect width="280" height="120" rx="22" fill="#eef3ff"/><text x="48" y="72" font-size="30" font-weight="900" fill="#243d96">출제경향</text>
+    <rect x="330" width="280" height="120" rx="22" fill="#eef3ff"/><text x="378" y="72" font-size="30" font-weight="900" fill="#243d96">오답관리</text>
+    <rect x="660" width="280" height="120" rx="22" fill="#eef3ff"/><text x="708" y="72" font-size="30" font-weight="900" fill="#243d96">서술형</text>
+  </g>
+</svg>

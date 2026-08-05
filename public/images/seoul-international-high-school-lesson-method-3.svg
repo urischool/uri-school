@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-label="서울국제고 전문 교사진">
+  <rect width="960" height="620" fill="#ffffff"/>
+  <rect x="0" y="0" width="960" height="620" fill="#f7faff"/>
+  <rect x="70" y="64" width="820" height="492" rx="28" fill="#ffffff" stroke="#d8e4ff" stroke-width="3"/>
+  <text x="480" y="142" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="46" font-weight="1000" fill="#111827">서울국제고 학생을 위한</text>
+  <text x="480" y="215" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="64" font-weight="1000" fill="#263f97">전문 교사진</text>
+  <g font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="32" font-weight="800" fill="#111827">
+    <text x="210" y="310">✓ 국제고 내신 전문 수업</text>
+    <text x="210" y="375">✓ 학교 자료 기반 커리큘럼</text>
+    <text x="210" y="440">✓ 수행평가와 시험 일정 관리</text>
+    <text x="210" y="505">✓ 학생별 오답 피드백</text>
+  </g>
+</svg>

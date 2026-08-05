@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="590" viewBox="0 0 960 590" role="img" aria-label="세종국제고 과목별 내신관리">
+  <rect width="960" height="590" fill="#f7fbff"/>
+  <rect x="0" y="0" width="960" height="130" fill="#126bf0"/>
+  <text x="480" y="86" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="40" font-weight="900" fill="#fff">세종국제고 내신관리</text>
+  <text x="70" y="245" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="66" font-weight="900" fill="#111827">학교 자료와</text>
+  <text x="70" y="325" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="66" font-weight="900" fill="#2446b2">과목별 출제경향</text>
+  <text x="70" y="405" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="66" font-weight="900" fill="#111827">함께 분석합니다</text>
+  <rect x="642" y="210" width="230" height="210" rx="24" fill="#fff" stroke="#bcd3ff" stroke-width="3"/>
+  <path d="M690 362h42v-78h-42zm60 0h42v-118h-42zm60 0h42v-152h-42z" fill="#126bf0" opacity=".9"/>
+  <text x="70" y="500" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="28" font-weight="700" fill="#3f4654">중간·기말고사와 수행평가 흐름을 학교별로 정리합니다.</text>
+</svg>

@@ -1,0 +1,46 @@
+﻿<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="12" y="12" width="1056" height="1056" fill="#fff"/>
+  <rect x="12" y="12" width="1056" height="1056" stroke="#0B2195" stroke-width="24"/>
+
+  <g transform="translate(888 50)">
+    <circle cx="62" cy="62" r="58" fill="#fff" stroke="#111" stroke-width="4"/>
+    <circle cx="62" cy="62" r="41" fill="#111"/>
+    <rect x="33" y="74" width="58" height="7" rx="2" fill="#fff"/>
+    <rect x="39" y="50" width="10" height="39" fill="#fff"/>
+    <rect x="57" y="50" width="10" height="39" fill="#fff"/>
+    <rect x="75" y="50" width="10" height="39" fill="#fff"/>
+    <path d="M32 45h60L62 30 32 45Z" fill="#fff"/>
+    <text x="62" y="17" text-anchor="middle" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="16" font-weight="800" fill="#111">우리학교 과외</text>
+    <text x="62" y="126" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#111">MY SCHOOL PRIVATE LESSON</text>
+    <text x="62" y="180" text-anchor="middle" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="34" font-weight="900" fill="#111">우리 학교 과외</text>
+  </g>
+
+  <g font-family="Malgun Gothic, Pretendard, Arial, sans-serif" text-anchor="middle">
+    <text x="540" y="190" font-size="90" font-weight="900" fill="#C9C9C9">과학고 학생,</text>
+    <text x="532" y="176" font-size="90" font-weight="900" fill="#35489E">과학고 학생,</text>
+    <text x="540" y="345" font-size="112" font-weight="900" fill="#C9C9C9">이렇게 가르칩니다</text>
+    <text x="532" y="330" font-size="112" font-weight="900" fill="#35489E">이렇게 가르칩니다</text>
+    <rect x="242" y="378" width="596" height="50" fill="#FFD15A"/>
+    <text x="540" y="416" font-size="34" font-weight="900" fill="#111">문제풀이만 하는 과외가 아닙니다!</text>
+    <text x="540" y="488" font-size="38" font-weight="800" fill="#777">내신 · 탐구/실험 · 수행평가 · 학생부까지 체계적 수업 방식</text>
+  </g>
+
+  <g font-family="Malgun Gothic, Pretendard, Arial, sans-serif">
+    <rect x="58" y="536" width="470" height="248" rx="22" fill="#EEF2FF"/>
+    <rect x="552" y="536" width="470" height="248" rx="22" fill="#EEF2FF"/>
+    <rect x="58" y="802" width="470" height="220" rx="22" fill="#EEF2FF"/>
+    <rect x="552" y="802" width="470" height="220" rx="22" fill="#EEF2FF"/>
+    <text x="293" y="628" text-anchor="middle" font-size="55" font-weight="900" fill="#000">과목수업</text>
+    <text x="293" y="702" text-anchor="middle" font-size="38" font-weight="500" fill="#000">고급수학, 심화수학</text>
+    <text x="293" y="752" text-anchor="middle" font-size="38" font-weight="500" fill="#000">고급과학 등 <tspan font-weight="900">전과목수업</tspan></text>
+    <text x="787" y="628" text-anchor="middle" font-size="55" font-weight="900" fill="#000">수행평가</text>
+    <text x="787" y="702" text-anchor="middle" font-size="38" font-weight="500" fill="#000">실험, 보고서, 발표 등</text>
+    <text x="787" y="752" text-anchor="middle" font-size="38" font-weight="500" fill="#000">전체적인 <tspan font-weight="900">수행관리</tspan></text>
+    <text x="293" y="890" text-anchor="middle" font-size="55" font-weight="900" fill="#000">대학 최저</text>
+    <text x="293" y="962" text-anchor="middle" font-size="38" font-weight="500" fill="#000">대학입학을 위한</text>
+    <text x="293" y="1012" text-anchor="middle" font-size="38" font-weight="500" fill="#000">수능 최저 수업</text>
+    <text x="787" y="890" text-anchor="middle" font-size="55" font-weight="900" fill="#000">교과외관리</text>
+    <text x="787" y="962" text-anchor="middle" font-size="38" font-weight="500" fill="#000">과목별 시간, 공부법</text>
+    <text x="787" y="1012" text-anchor="middle" font-size="38" font-weight="500" fill="#000">탐구과정기록 <tspan font-weight="900">비교과관리</tspan></text>
+  </g>
+</svg>

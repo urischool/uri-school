@@ -1,0 +1,15 @@
+﻿<svg width="1200" height="760" viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#f8fbff"/>
+  <rect x="42" y="42" width="1116" height="676" rx="28" fill="#fff" stroke="#243d96" stroke-width="4"/>
+  <circle cx="1010" cy="128" r="86" fill="#243d96"/>
+  <rect x="780" y="512" width="260" height="144" rx="72" fill="#243d96" opacity=".12"/>
+  <text x="110" y="180" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="62" font-weight="900" fill="#243d96">전국단위 자사고</text>
+  <text x="110" y="265" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="78" font-weight="900" fill="#111">학교분석</text>
+  <text x="110" y="350" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="28" font-weight="700" fill="#333">우리학교과외 분석팀</text>
+  <text x="110" y="465" font-family="Malgun Gothic, Pretendard, Arial, sans-serif" font-size="34" font-weight="800" fill="#555">학교별 시험 범위 · 수행평가 · 학생부 흐름까지 함께 봅니다</text>
+  <g transform="translate(760 210)">
+    <rect width="300" height="230" rx="28" fill="#eef3ff"/>
+    <path d="M70 150c46-68 78-62 112-18 18-40 44-72 72-104" fill="none" stroke="#243d96" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="74" cy="150" r="13" fill="#243d96"/><circle cx="182" cy="132" r="13" fill="#243d96"/><circle cx="254" cy="28" r="13" fill="#243d96"/>
+  </g>
+</svg>

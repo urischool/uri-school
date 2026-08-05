@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-label="서울국제고 과목별 관리">
+  <rect width="960" height="620" fill="#ffffff"/>
+  <rect x="0" y="0" width="960" height="18" fill="#2550d8"/>
+  <text x="480" y="80" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="58" font-weight="1000" fill="#1267f1">우리학교과외 차이점</text>
+  <text x="480" y="122" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="24" font-weight="700" fill="#2874e5">효과적 성적향상을 위한 선택, 우리학교과외</text>
+  <g font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif">
+    <circle cx="480" cy="190" r="46" fill="#e6f0ff"/><text x="480" y="205" text-anchor="middle" font-size="42" font-weight="900" fill="#1267f1">01</text>
+    <text x="480" y="255" text-anchor="middle" font-size="44" font-weight="1000" fill="#ffc82e">학교분석</text>
+    <text x="480" y="304" text-anchor="middle" font-size="28" font-weight="500" fill="#2d3445">서울국제고 내신경쟁에서 학생만의 학교 자료 흐름을 분석합니다.</text>
+    <circle cx="480" cy="385" r="46" fill="#e6f0ff"/><text x="480" y="400" text-anchor="middle" font-size="42" font-weight="900" fill="#1267f1">02</text>
+    <text x="480" y="450" text-anchor="middle" font-size="44" font-weight="1000" fill="#ffc82e">학생관리 시스템</text>
+    <text x="480" y="500" text-anchor="middle" font-size="28" font-weight="500" fill="#2d3445">담임처럼 일정, 오답, 수행평가를 함께 관리합니다.</text>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="560" viewBox="0 0 720 560" role="img" aria-label="부산국제고 학교분석 자료">
+  <rect x="24" y="22" width="672" height="516" fill="#fff" stroke="#d0d6e4" stroke-width="2"/>
+  <path d="M590 28h82v126c0 44-36 80-80 80h-2z" fill="#263f97"/>
+  <text x="58" y="78" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="22" font-weight="900" fill="#111827">우리학교 과외</text>
+  <text x="58" y="180" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="72" font-weight="1000" fill="#243f9b">부산</text>
+  <text x="58" y="258" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="62" font-weight="1000" fill="#243f9b">국제고등학교</text>
+  <text x="58" y="350" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="68" font-weight="1000" fill="#050505">학교분석</text>
+  <text x="58" y="462" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="22" font-weight="900" fill="#111827">우리학교과외 분석팀</text>
+  <circle cx="525" cy="336" r="116" fill="#eef2f7"/>
+  <path d="M440 402c58-42 100-45 158-16 38 19 65 15 102-4v82H440z" fill="#8f98a8" opacity=".9"/>
+  <circle cx="535" cy="318" r="48" fill="#b7beca"/>
+  <path d="M624 255h44v200h-44z" fill="#263f97"/>
+</svg>

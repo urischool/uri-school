@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="590" viewBox="0 0 960 590" role="img" aria-label="세종국제고 내신대비 수업방식">
+  <rect width="960" height="590" fill="#0f58ae"/>
+  <rect x="0" y="0" width="960" height="590" fill="#0b55ad"/>
+  <line x1="28" y1="112" x2="932" y2="112" stroke="#fff" stroke-width="4" opacity=".9"/>
+  <text x="32" y="88" font-family="Batang, 'Noto Serif KR', serif" font-size="44" fill="#fff">우리학교과외 수업방식</text>
+  <text x="480" y="285" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="92" font-weight="900" fill="#fff">세종국제고</text>
+  <text x="350" y="415" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="86" font-weight="900" fill="#fff">차별성</text>
+  <text x="650" y="415" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="46" font-weight="500" fill="#fff">이 있어야 합니다</text>
+</svg>

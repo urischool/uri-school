@@ -1,0 +1,42 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="960" height="820" viewBox="0 0 960 820" role="img" aria-label="동탄국제고 학생 이렇게 가르칩니다">
+  <rect width="960" height="820" fill="#ffffff"/>
+  <rect x="0" y="0" width="18" height="820" fill="#24439a"/>
+  <rect x="942" y="0" width="18" height="820" fill="#24439a"/>
+  <g transform="translate(782 18)">
+    <circle cx="42" cy="42" r="35" fill="#fff" stroke="#111" stroke-width="2.5"/>
+    <circle cx="42" cy="42" r="22" fill="#fff" stroke="#111" stroke-width="1.5"/>
+    <rect x="29" y="34" width="26" height="22" rx="2" fill="#2949d9"/>
+    <path d="M34 53V35M42 53V32M50 53V35" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="42" y="8" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="8" font-weight="900" fill="#111">우리학교 과외</text>
+    <text x="42" y="108" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="23" font-weight="900" fill="#111">우리학교 과외</text>
+  </g>
+  <text x="480" y="155" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="86" font-weight="1000" fill="#263f97" letter-spacing="-2">동탄국제고 학생,</text>
+  <text x="480" y="268" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="90" font-weight="1000" fill="#263f97" letter-spacing="-2">이렇게 가르칩니다</text>
+  <text x="486" y="160" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="86" font-weight="1000" fill="#000" opacity=".16" letter-spacing="-2">동탄국제고 학생,</text>
+  <text x="486" y="273" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="90" font-weight="1000" fill="#000" opacity=".16" letter-spacing="-2">이렇게 가르칩니다</text>
+  <rect x="221" y="300" width="520" height="39" fill="#ffd850"/>
+  <text x="480" y="329" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="33" font-weight="900" fill="#111">문제풀이만 하는 과외가 아닙니다!</text>
+  <text x="480" y="394" text-anchor="middle" font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif" font-size="34" font-weight="800" fill="#777">내신 · 수행평가 · 수능최저 · 학생부까지 체계적 수업 방식</text>
+
+  <g font-family="Pretendard, 'Noto Sans KR', Arial, sans-serif">
+    <rect x="58" y="438" width="415" height="166" rx="20" fill="#eef2ff"/>
+    <text x="266" y="514" text-anchor="middle" font-size="48" font-weight="1000" fill="#050505">과목수업</text>
+    <text x="266" y="573" text-anchor="middle" font-size="36" font-weight="500" fill="#111">사회탐구, 영어, 국어,</text>
+    <text x="266" y="620" text-anchor="middle" font-size="36" font-weight="500" fill="#111">제2외국어 등 전과목수업</text>
+
+    <rect x="487" y="438" width="415" height="166" rx="20" fill="#eef2ff"/>
+    <text x="695" y="514" text-anchor="middle" font-size="48" font-weight="1000" fill="#050505">수행평가</text>
+    <text x="695" y="573" text-anchor="middle" font-size="36" font-weight="500" fill="#111">에세이, 발표, 토론 등</text>
+    <text x="695" y="620" text-anchor="middle" font-size="36" font-weight="500" fill="#111">전체적인 수행관리</text>
+
+    <rect x="58" y="628" width="415" height="166" rx="20" fill="#eef2ff"/>
+    <text x="266" y="704" text-anchor="middle" font-size="48" font-weight="1000" fill="#050505">대학 최저</text>
+    <text x="266" y="763" text-anchor="middle" font-size="36" font-weight="500" fill="#111">대학입학을 위한</text>
+    <text x="266" y="810" text-anchor="middle" font-size="36" font-weight="500" fill="#111">수능 최저 수업</text>
+
+    <rect x="487" y="628" width="415" height="166" rx="20" fill="#eef2ff"/>
+    <text x="695" y="704" text-anchor="middle" font-size="48" font-weight="1000" fill="#050505">교과외관리</text>
+    <text x="695" y="763" text-anchor="middle" font-size="34" font-weight="500" fill="#111">과목별 시간, 공부법</text>
+    <text x="695" y="808" text-anchor="middle" font-size="34" font-weight="500" fill="#111">교내대회 탐구과정기록</text>
+  </g>
+</svg>
