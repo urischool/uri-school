@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { SchoolSearch } from "@/components/SchoolSearch";
+import { schools } from "@/data/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -73,10 +75,14 @@ export default function HomePage() {
           <div className="hero-logo">
             <img src="/images/seal-symbol.png" alt="우리학교 과외 로고" />
           </div>
-          <form className="school-search" action="/schools/goyang-international-high-school/math">
-            <input aria-label="학교 검색" placeholder="내 학교 검색" />
-            <button type="submit" aria-label="검색">⌕</button>
-          </form>
+          <SchoolSearch
+            schools={schools.map((school) => ({
+              name: school.name,
+              slug: school.slug,
+              typeLabel: school.typeLabel,
+              area: school.area
+            }))}
+          />
           <p className="search-caption">학교명을 검색해주세요</p>
           <p className="question">수업 방식이 궁금하다면?</p>
           <Link className="pill-button" href="/lesson-method">

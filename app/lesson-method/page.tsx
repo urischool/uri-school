@@ -62,15 +62,6 @@ const lessonSections = [
       "월별 계획을 주별 실행 항목으로 쪼개고 과목별 우선순위를 정합니다. 학생이 무엇을 해야 하는지 분명하게 보이도록 체크리스트화합니다.",
     image: "/images/lesson-method-weekly.png",
     alt: "주별 플래닝 체크리스트"
-  },
-  {
-    marker: "05",
-    title: "학습유형 진단",
-    subtitle: "좋은 공부법은 곧 좋은 성적입니다",
-    body:
-      "학습만 한다고 공부가 아닙니다. 학생의 공부 MBTI와 풀이 습관을 확인해 암기형, 이해형, 실전형 중 어떤 보완이 필요한지 진단합니다.",
-    image: "/images/lesson-method-studytype.png",
-    alt: "학습유형 진단과 공부법 개선"
   }
 ];
 
@@ -113,10 +104,9 @@ export default function LessonMethodPage() {
       </section>
 
       <section className="lesson-final-cta">
-        <img src="/images/lesson-method-final-cta.png" alt="학생과 입시까지 함께하는 우리학교과외" />
         <div>
           <p className="eyebrow">무료 컨설팅</p>
-          <h2>학생과 입시까지 함께하는 우리학교과외</h2>
+          <h2>학생과 입시까지 함께하는<br />우리학교과외</h2>
           <p>현재 상황을 알려주시면 필요한 과목, 수업 강도, 관리 방식을 함께 정리해드립니다.</p>
           <Link className="button light" href="/consultation">
             무료 컨설팅 상담 신청하기

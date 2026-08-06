@@ -13,6 +13,15 @@ export const metadata: Metadata = {
   },
   description: site.description,
   metadataBase: new URL(site.url),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
+  },
   alternates: {
     types: {
       "application/rss+xml": `${site.url.replace(/\/$/, "")}/rss.xml`
@@ -46,14 +55,14 @@ const organizationSchema = {
   "@type": "Organization",
   name: "우리학교과외",
   url: site.url,
-  description: "국제고, 외고, 과학고, 전국단위 자사고 등 학교별 내신 대비와 수행평가 관리를 제공하는 1:1 과외 서비스",
+  description: "국제고, 외고, 과학고, 전사고등학교 등 학교별 내신 대비와 수행평가 관리를 제공하는 1:1 과외 서비스",
   areaServed: "대한민국",
   knowsAbout: [
     "학교별 내신관리",
     "국제고 내신",
     "외고 내신",
     "과학고 내신",
-    "전국단위 자사고 내신",
+    "전사고등학교 내신",
     "수행평가 관리"
   ]
 };

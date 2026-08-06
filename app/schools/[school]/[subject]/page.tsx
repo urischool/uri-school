@@ -434,6 +434,7 @@ const daewonSubjectConfigs: Record<string, DaewonSubjectConfig> = {
   math: { slug: "math", name: "수학", courseKeywords: "수학1, 수학2, 미적분, 확률과통계", firstKeywords: "개념 공백, 유형별 오답, 서술형 풀이, 계산 실수", analysisKeywords: "단원별 개념, 고난도 유형, 서술형 풀이 과정", performance: "수학 수행평가와 시험 직전 실전 훈련", roadmapMid: ["개념", "유형", "오답", "서술형"], roadmapFinal: ["고난도 유형", "미적분", "시간 관리", "학교별 분석"] },
   social: { slug: "social", name: "사회", courseKeywords: "한국사, 세계사, 사회문화, 정치와법, 생활과윤리", firstKeywords: "개념 구조, 자료 해석, 핵심어 암기, 서술형 답안", analysisKeywords: "사회문화 도표, 정치와법 개념, 윤리 과목의 근거 표현", performance: "탐구 보고서와 발표 수행평가", roadmapMid: ["개념", "자료 해석", "핵심어", "서술형"], roadmapFinal: ["도표 분석", "사례 적용", "논술형", "학교별 분석"] },
   science: { slug: "science", name: "과학", courseKeywords: "통합과학, 물리, 화학, 생명과학, 지구과학", firstKeywords: "개념 이해, 탐구 자료, 계산형 문항, 실험 조건", analysisKeywords: "탐구 자료 해석, 단원별 개념, 계산형 문제 풀이", performance: "실험 보고서와 탐구 수행평가", roadmapMid: ["개념", "탐구 자료", "계산", "오답"], roadmapFinal: ["실험 조건", "자료 해석", "계산형", "학교별 분석"] },
+  "second-language": { slug: "second-language", name: "\uC81C2\uC678\uAD6D\uC5B4", courseKeywords: "\uC81C2\uC678\uAD6D\uC5B4 \uC5B4\uD718, \uBB38\uBC95, \uB3C5\uD574, \uD68C\uD654 \uD45C\uD604", firstKeywords: "\uC5B4\uD718 \uB204\uC801, \uBB38\uBC95 \uC801\uC6A9, \uBCF8\uBB38 \uD574\uC11D, \uC218\uD589\uD3C9\uAC00", analysisKeywords: "\uC5B4\uD718, \uBB38\uBC95, \uB3C5\uD574, \uD68C\uD654 \uD45C\uD604", performance: "\uC81C2\uC678\uAD6D\uC5B4 \uBC1C\uD45C\uC640 \uC4F0\uAE30 \uC218\uD589\uD3C9\uAC00", roadmapMid: ["\uC5B4\uD718", "\uBB38\uBC95", "\uBCF8\uBB38", "\uD68C\uD654"], roadmapFinal: ["\uB3C5\uD574", "\uC4F0\uAE30", "\uBCC0\uD615 \uBB38\uC81C", "\uD559\uAD50\uBCC4 \uBD84\uC11D"] },
   french: { slug: "french", name: "프랑스어", courseKeywords: "프랑스어 어휘, 문법, 독해, 회화, 작문", firstKeywords: "발음, 어휘 누적, 문법 변화, 본문 해석", analysisKeywords: "프랑스어 문법, 독해 지문, 회화 표현, 작문 답안", performance: "프랑스어 회화와 작문 수행평가", roadmapMid: ["어휘", "문법", "본문", "회화"], roadmapFinal: ["독해", "작문", "변형 문제", "학교별 분석"] },
   german: { slug: "german", name: "독일어", courseKeywords: "독일어 어휘, 격변화, 문법, 독해, 회화", firstKeywords: "발음, 어휘 누적, 격변화, 문장 구조", analysisKeywords: "독일어 격변화, 동사 위치, 독해 지문, 회화 표현", performance: "독일어 말하기와 작문 수행평가", roadmapMid: ["어휘", "격변화", "문장 구조", "회화"], roadmapFinal: ["독해", "작문", "고난도 문법", "학교별 분석"] },
   spanish: { slug: "spanish", name: "스페인어", courseKeywords: "스페인어 어휘, 동사변화, 문법, 독해, 회화", firstKeywords: "발음, 어휘 누적, 동사변화, 본문 해석", analysisKeywords: "스페인어 동사변화, 문법 적용, 독해 지문, 회화 표현", performance: "스페인어 회화와 발표 수행평가", roadmapMid: ["어휘", "동사변화", "문법", "회화"], roadmapFinal: ["독해", "작문", "변형 문제", "학교별 분석"] },
@@ -552,6 +553,13 @@ function makeScienceSubjectDetail(schoolName: string, subjectSlug: string) {
 function getScienceSubjectTemplateDetail(school: { name: string; slug: string }, subjectSlug: string) {
   if (!scienceSchoolNameMap[school.slug]) return null;
   return makeScienceSubjectDetail(school.name, subjectSlug);
+}
+
+function getSchoolSubjectTemplateDetail(school: any, subjectSlug: string) {
+  if (school.type === "foreign-language-high-school") return getForeignSubjectTemplateDetail(school, subjectSlug);
+  if (school.type === "science-high-school") return getScienceSubjectTemplateDetail(school, subjectSlug);
+  if (school.type === "autonomous-private-high-school" || school.type === "regional-autonomous-private-high-school") return getForeignSubjectTemplateDetail(school, subjectSlug);
+  return null;
 }
 
 type SubjectCurriculumNoteMap = Record<string, Partial<Record<string, string>>>;
@@ -730,7 +738,7 @@ export function generateMetadata({ params }: { params: { school: string; subject
     });
   }
 
-  const daewonMetaDetail = school.type === "foreign-language-high-school" ? getForeignSubjectTemplateDetail(school, subject.slug) : school.type === "science-high-school" ? getScienceSubjectTemplateDetail(school, subject.slug) : null;
+  const daewonMetaDetail = getSchoolSubjectTemplateDetail(school, subject.slug);
   if (daewonMetaDetail) {
     return createMetadata({
       title: school.name + " " + daewonMetaDetail.name + " 내신대비 | " + school.name + " " + daewonMetaDetail.name + " 학원·과외",
@@ -845,7 +853,7 @@ export default function SchoolSubjectPage({ params }: { params: { school: string
     areaServed: school.area,
     url: absoluteUrl(pagePath)
   };
-  const daewonTemplateDetail = school.type === "foreign-language-high-school" ? getForeignSubjectTemplateDetail(school, subject.slug) : school.type === "science-high-school" ? getScienceSubjectTemplateDetail(school, subject.slug) : null;
+  const daewonTemplateDetail = getSchoolSubjectTemplateDetail(school, subject.slug);
   if (daewonTemplateDetail) {
     const daewonFaqSchema = {
       "@context": "https://schema.org",

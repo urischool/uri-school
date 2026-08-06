@@ -37,7 +37,7 @@ export function Header() {
           </div>
         </div>
         <Link href="/lesson-method">수업방식</Link>
-        <Link href="/review">과외문의</Link>
+        <Link href="/review">과외현황</Link>
         <Link href="/qna">실제후기</Link>
         <Link href="/consultation">상담신청</Link>
       </nav>

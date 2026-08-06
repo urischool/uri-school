@@ -104,11 +104,11 @@ export const schoolListCategories = [
   },
   {
     key: "national-private-high-schools",
-    category: "전국단위 자율형사립고등학교",
-    navLabel: "전국단위 자사고",
+    category: "전사고등학교",
+    navLabel: "전사고등학교",
     path: "/schools/national-private-high-schools",
-    title: "전국단위 자사고별 맞춤 내신관리",
-    description: "전국단위 자사고별 내신관리와 학교별 학습 흐름을 확인하고, 상세 페이지가 준비된 학교는 바로 이동할 수 있습니다.",
+    title: "전사고별 맞춤 내신관리",
+    description: "전사고등학교별 내신관리와 학교별 학습 흐름을 확인하고, 상세 페이지가 준비된 학교는 바로 이동할 수 있습니다.",
     schools: [
       { name: "민족사관고등학교", href: "/schools/minjok-leadership-academy" },
       { name: "상산고등학교", href: "/schools/sangsan-high-school" },
