@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   },
   description: site.description,
   metadataBase: new URL(site.url),
+  alternates: {
+    types: {
+      "application/rss+xml": `${site.url.replace(/\/$/, "")}/rss.xml`
+    }
+  },
   verification: {
     other: {
       "naver-site-verification": "f6ed2e4022b9cd0a483667acf6cdfe4d2b482725"

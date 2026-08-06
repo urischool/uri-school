@@ -2,7 +2,7 @@
   name: "우리학교과외",
   tagline: "학교별 맞춤 내신관리 과외",
   description: "특목고, 국제고, 외고 학생을 위한 학교별 맞춤 내신관리와 수행평가 대비 1:1 과외.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://uri-school.imweb.me",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://uri-school.com",
   phone: "010-5741-1134",
   nav: [
     { label: "우리학교과외", href: "/" },
