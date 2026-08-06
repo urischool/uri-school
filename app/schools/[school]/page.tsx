@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ConsultationForm } from "@/components/ConsultationForm";
 import { JsonLd } from "@/components/JsonLd";
 import { ReportTitle } from "@/components/PageSections";
-import { schools, subjects } from "@/data/site";
+import { getSchoolAnalysisImage, schools, subjects } from "@/data/site";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
 import { getSchool } from "@/lib/data";
 
@@ -231,6 +231,39 @@ function adaptSchoolText(text: string, schoolSlug: string) {
 }
 
 function getSchoolVisuals(schoolSlug: string, schoolName: string) {
+  if (schoolSlug.startsWith("autonomous-private-high-school-")) {
+    return {
+      analysis: `/images/${schoolSlug}-school-analysis-v4.svg?v=exact-template-20260803b`,
+      currentStatus: "/images/goyang-current-status-report.png",
+      feedback: "/images/goyang-custom-analysis-feedback.png",
+      lessons: [
+        ["/images/regional-autonomous-private-high-school-lesson-method-1.png", `${schoolName} \uC790\uC0AC\uACE0\uD615 \uB0B4\uC2E0\uB300\uBE44 \uC218\uC5C5\uBC29\uC2DD`],
+        ["/images/regional-autonomous-private-high-school-lesson-method-2.png", `${schoolName} \uC790\uC0AC\uACE0 \uC804\uBB38 \uAD50\uC0AC\uC9C4`]
+      ] as const
+    };
+  }
+  if (schoolSlug.startsWith("top-general-high-school-")) {
+    return {
+      analysis: `/images/${schoolSlug}-school-analysis-v4.svg?v=exact-template-20260803b`,
+      currentStatus: "/images/goyang-current-status-report.png",
+      feedback: "/images/goyang-custom-analysis-feedback.png",
+      lessons: [
+        ["/images/top-general-high-school-lesson-method-1.png", `${schoolName} \uAC13\uBC18\uACE0\uD615 \uB0B4\uC2E0\uB300\uBE44 \uC218\uC5C5\uBC29\uC2DD`],
+        ["/images/top-general-high-school-lesson-method-2.png", `${schoolName} \uAC13\uBC18\uACE0 \uC804\uBB38 \uAD50\uC0AC\uC9C4`]
+      ] as const
+    };
+  }
+  if (schoolSlug.startsWith("arts-high-school-")) {
+    return {
+      analysis: `/images/${schoolSlug}-school-analysis-v4.svg?v=exact-template-20260803b`,
+      currentStatus: "/images/goyang-current-status-report.png",
+      feedback: "/images/goyang-custom-analysis-feedback.png",
+      lessons: [
+        ["/images/arts-high-school-lesson-method-1.png", `${schoolName} \uC608\uACE0\uD615 \uB0B4\uC2E0\uB300\uBE44 \uC218\uC5C5\uBC29\uC2DD`],
+        ["/images/arts-high-school-lesson-method-2.png", `${schoolName} \uC608\uACE0 \uC804\uBB38 \uAD50\uC0AC\uC9C4`]
+      ] as const
+    };
+  }
   if (usesExactTemplateVisuals(schoolSlug)) {
     return {
       analysis: `/images/${schoolSlug}-school-analysis-v4.svg?v=exact-template-20260803b`,
@@ -320,7 +353,7 @@ export function generateMetadata({ params }: { params: { school: string } }) {
   const school = getSchool(params.school);
   if (!school) return {};
   const t = (text: string) => adaptSchoolText(text, school.slug);
-  const image = getSchoolVisuals(school.slug, school.name).analysis;
+  const image = getSchoolAnalysisImage(school);
 
   return createMetadata({
     title: `${school.name} 내신 가이드 - 중간고사·기말고사·수행평가 내신대비`,
@@ -498,56 +531,3 @@ export default function SchoolPage({ params }: { params: { school: string } }) {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -373,7 +373,7 @@ const subjectPageKeywords: Record<string, { core: string[]; checks: string[]; cu
   }
 };
 
-function getSchoolSubjectHeroImage(school: School) {
+export function getSchoolAnalysisImage(school: School) {
   const context = schoolTypeContext[school.type];
 
   if (school.slug === "goyang-international-high-school") {
@@ -412,7 +412,7 @@ function makeSubjectPage(school: School, subject: Subject): SchoolSubjectPage {
   return {
     schoolSlug: school.slug,
     subjectSlug: subject.slug,
-    heroImage: getSchoolSubjectHeroImage(school),
+    heroImage: getSchoolAnalysisImage(school),
     h1: `${schoolKeyword} 내신대비`,
     summary: `${schoolKeyword} 내신은 ${context.lessonFocus}을 ${subjectKeywords}와 함께 확인해 설계합니다. ${academyKeyword}, ${tutorKeyword}를 찾는 학생에게 필요한 학교별 대비 흐름을 정리했습니다.`,
     aiSummary: [

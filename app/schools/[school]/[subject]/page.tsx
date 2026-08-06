@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTA } from "@/components/CTA";
 import { JsonLd } from "@/components/JsonLd";
 import { LinkCard, PremiumReveal, ReportTitle } from "@/components/PageSections";
-import { schoolSubjectPages, schools, subjects } from "@/data/site";
+import { getSchoolAnalysisImage, schoolSubjectPages, schools, subjects } from "@/data/site";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
 import { getSchool, getSchoolSubjectPage, getSubject } from "@/lib/data";
 
@@ -706,7 +706,7 @@ export function generateMetadata({ params }: { params: { school: string; subject
       description:
         "고양국제고 수학 내신 특징, 수행평가, 서술형 대비, 고국고 수학 커리큘럼과 학부모 후기를 확인하세요.",
       path: "/schools/goyang-international-high-school/math",
-      image: "/images/goyang-international-school-analysis.png"
+      image: getSchoolAnalysisImage(school)
     });
   }
 
@@ -716,7 +716,7 @@ export function generateMetadata({ params }: { params: { school: string; subject
       description:
         "고양국제고 국어 내신 특징, 수행평가, 서술형 답안, 고국고 국어 커리큘럼과 학부모 후기를 확인하세요.",
       path: "/schools/goyang-international-high-school/korean",
-      image: "/images/goyang-current-status-report.png"
+      image: getSchoolAnalysisImage(school)
     });
   }
 
@@ -726,7 +726,7 @@ export function generateMetadata({ params }: { params: { school: string; subject
       description:
         "고양국제고 영어 내신 특징, 수행평가, 서술형 답안, 고국고 영어 커리큘럼과 학부모 후기를 확인하세요.",
       path: "/schools/goyang-international-high-school/english",
-      image: "/images/goyang-custom-analysis-feedback.png"
+      image: getSchoolAnalysisImage(school)
     });
   }
 
@@ -736,7 +736,7 @@ export function generateMetadata({ params }: { params: { school: string; subject
       title: school.name + " " + daewonMetaDetail.name + " 내신대비 | " + school.name + " " + daewonMetaDetail.name + " 학원·과외",
       description: school.name + " " + daewonMetaDetail.name + " 내신, " + school.name + " " + daewonMetaDetail.name + " 학원·과외 선택 전 확인할 학교 자료 분석, 수행평가, 서술형 대비 흐름을 정리했습니다.",
       path: "/schools/" + school.slug + "/" + subject.slug,
-      image: daewonMetaDetail.featureImage
+      image: getSchoolAnalysisImage(school)
     });
   }
 
@@ -746,7 +746,7 @@ export function generateMetadata({ params }: { params: { school: string; subject
       title: `고양국제고 ${additionalSubject.name} 내신대비 | 고국고 ${additionalSubject.name} 커리큘럼`,
       description: `고양국제고 ${additionalSubject.name} 내신 특징, 수행평가, 학교별 자료 분석, 고국고 ${additionalSubject.name} 커리큘럼과 학부모 후기를 확인하세요.`,
       path: `/schools/goyang-international-high-school/${subject.slug}`,
-      image: additionalSubject.featureImage
+      image: getSchoolAnalysisImage(school)
     });
   }
 
@@ -754,7 +754,7 @@ export function generateMetadata({ params }: { params: { school: string; subject
     title: `${page.h1} - 학교별 ${subject.name} 내신관리`,
     description: `${page.h1}. ${school.name} ${subject.name} 내신 특징, 현재상황 체크, 맞춤 분석, 커리큘럼, 실제 지도 사례와 FAQ를 확인하세요.`,
     path: `/schools/${school.slug}/${subject.slug}`,
-    image: page.heroImage
+    image: getSchoolAnalysisImage(school)
   });
 }
 
