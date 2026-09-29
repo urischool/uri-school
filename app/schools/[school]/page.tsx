@@ -8,6 +8,25 @@ import { getSchoolAnalysisImage, schools, subjects } from "@/data/site";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
 import { getSchool } from "@/lib/data";
 
+const gimhaeSchoolSlug = "gimhae-foreign-language-high-school";
+const gimhaeSchoolContent = {
+  description: "김해외고 내신대비를 위한 학교별 학습 가이드입니다. 국어·영어·수학·사회·과학·중국어·일본어 과목별 내신과 중간고사·기말고사·수행평가 준비 방향을 확인하고, 학생별 학습 상황에 맞춘 내신 관리 방법을 살펴보세요.",
+  features: [
+    {
+      title: "학교 자료를 중심으로 시험범위를 정리합니다",
+      body: "교과서와 학교 프린트, 부교재, 수업 필기 등 실제 수업에서 활용되는 자료를 기준으로 시험범위를 정리하고 학습 우선순위를 설정합니다."
+    },
+    {
+      title: "과목별로 내신 준비 방향을 구분합니다",
+      body: "국어·영어·수학뿐 아니라 사회·과학·중국어·일본어까지 과목별 학습 내용과 평가 영역을 확인하여 과목 특성에 맞춰 내신을 준비합니다."
+    },
+    {
+      title: "지필평가와 수행평가를 함께 관리합니다",
+      body: "중간고사와 기말고사 준비뿐 아니라 발표·글쓰기 등 과목별 수행평가 일정도 함께 확인하여 학기 전체의 내신 준비 계획을 세웁니다."
+    }
+  ]
+};
+
 const quickMenu = [
   { label: "학교소개", href: "#intro" },
   { label: "연간 학사일정", href: "#calendar" },
@@ -355,18 +374,30 @@ export function generateMetadata({ params }: { params: { school: string } }) {
   const t = (text: string) => adaptSchoolText(text, school.slug);
   const image = getSchoolAnalysisImage(school);
 
-  return createMetadata({
+  const metadata = createMetadata({
     title: `${school.name} 내신 가이드 - 중간고사·기말고사·수행평가 내신대비`,
     description: t("고양국제고 내신 종합 가이드입니다. 과목별 내신대비, 중간고사, 기말고사, 수행평가, 학교별 맞춤 수업 방식을 확인하세요."),
     path: `/schools/${school.slug}`,
     image
   });
+
+  if (school.slug !== gimhaeSchoolSlug) return metadata;
+
+  return {
+    ...metadata,
+    description: gimhaeSchoolContent.description,
+    openGraph: {
+      ...metadata.openGraph,
+      description: gimhaeSchoolContent.description
+    }
+  };
 }
 
 export default function SchoolPage({ params }: { params: { school: string } }) {
   const school = getSchool(params.school);
   if (!school) notFound();
   const t = (text: string) => adaptSchoolText(text, school.slug);
+  const features = school.slug === gimhaeSchoolSlug ? gimhaeSchoolContent.features : undefined;
   const schoolVisuals = getSchoolVisuals(school.slug, school.name);
   const pageSubjectCards = getSchoolSubjectCards(school);
   const pageQuickMenu = getSchoolQuickMenu(school);
@@ -470,9 +501,9 @@ export default function SchoolPage({ params }: { params: { school: string } }) {
         <section className="report-panel" id="features">
           <ReportTitle title={`${school.name} 내신특징`} />
           <div className="analysis-cards">
-            <article className="analysis-card"><strong>학교 자료 중심</strong><p>교과서, 프린트, 부교재, 수업 필기를 기준으로 시험 대비 방향을 잡습니다.</p></article>
-            <article className="analysis-card"><strong>수행평가 병행</strong><p>발표, 보고서, 글쓰기, 실험 정리 등 수행평가 일정을 내신 계획에 반영합니다.</p></article>
-            <article className="analysis-card"><strong>과목별 전략 분리</strong><p>국어, 영어, 수학, 사회, 과학, 제2외국어의 평가 방식에 맞춰 수업 흐름을 다르게 설계합니다.</p></article>
+            <article className="analysis-card"><strong>{features?.[0].title ?? "학교 자료 중심"}</strong><p>{features?.[0].body ?? "교과서, 프린트, 부교재, 수업 필기를 기준으로 시험 대비 방향을 잡습니다."}</p></article>
+            <article className="analysis-card"><strong>{features?.[1].title ?? "수행평가 병행"}</strong><p>{features?.[1].body ?? "발표, 보고서, 글쓰기, 실험 정리 등 수행평가 일정을 내신 계획에 반영합니다."}</p></article>
+            <article className="analysis-card"><strong>{features?.[2].title ?? "과목별 전략 분리"}</strong><p>{features?.[2].body ?? "국어, 영어, 수학, 사회, 과학, 제2외국어의 평가 방식에 맞춰 수업 흐름을 다르게 설계합니다."}</p></article>
           </div>
 
         </section>
@@ -506,7 +537,17 @@ export default function SchoolPage({ params }: { params: { school: string } }) {
                 <summary>{t(faq.question)}</summary>
                 <p>
                   {t(faq.answer)}{" "}
-                  {"link" in faq && faq.link && <Link className="inline-link" href={`/schools/${school.slug}/${faq.link}`}>{`${school.name} ${getSubjectLabel(faq.link)} 내신대비 보기`}</Link>}
+                  {"link" in faq && faq.link && (
+                    school.slug === gimhaeSchoolSlug && faq.link === "second-language" ? (
+                      <>
+                        <Link className="inline-link" href={`/schools/${school.slug}/chinese`}>김해외고 중국어 내신대비 보기</Link>
+                        {" · "}
+                        <Link className="inline-link" href={`/schools/${school.slug}/japanese`}>김해외고 일본어 내신대비 보기</Link>
+                      </>
+                    ) : (
+                      <Link className="inline-link" href={`/schools/${school.slug}/${faq.link}`}>{`${school.name} ${getSubjectLabel(faq.link)} 내신대비 보기`}</Link>
+                    )
+                  )}
                 </p>
               </details>
             ))}

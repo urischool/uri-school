@@ -8,6 +8,32 @@ import { getSchoolAnalysisImage, schoolSubjectPages, schools, subjects } from "@
 import { absoluteUrl, createMetadata } from "@/lib/seo";
 import { getSchool, getSchoolSubjectPage, getSubject } from "@/lib/data";
 
+const seoulEnglishContent = {
+  description: "서울외고 영어 내신대비를 위한 과목별 학습 가이드입니다. 학교 자료와 시험범위를 바탕으로 본문·어휘·어법·서술형 영역을 점검하고, 수행평가와 중간·기말고사 일정에 맞춰 학생별 영어 내신 준비 방향을 설계합니다.",
+  features: [
+    ["학교 자료와 시험범위를 먼저 정리합니다", "교과서와 학교 자료, 시험범위를 확인하여 본문·어휘·어법 등 영역별 학습 우선순위를 정합니다."],
+    ["서술형까지 함께 대비합니다", "단순 암기뿐 아니라 문장 구조와 핵심 표현을 점검하고, 시험범위에 맞춰 서술형 문항에 대비합니다."],
+    ["지필평가와 수행평가 일정을 함께 관리합니다", "중간고사·기말고사 준비와 영어 수행평가 일정을 함께 확인하여 학기 전체의 영어 내신 학습 계획을 관리합니다."]
+  ]
+};
+
+function isSeoulEnglishPage(schoolSlug: string, subjectSlug: string) {
+  return schoolSlug === "seoul-foreign-language-high-school" && subjectSlug === "english";
+}
+
+const goyangForeignMathContent = {
+  description: "고양외고 수학 내신대비를 위한 과목별 학습 가이드입니다. 학교 자료와 시험범위를 바탕으로 개념·유형·서술형과 오답 영역을 점검하고, 중간·기말고사 일정과 학생별 취약 영역에 맞춰 수학 내신 준비 방향을 설계합니다.",
+  features: [
+    ["시험범위의 개념과 유형을 먼저 정리합니다", "학교 자료와 시험범위를 확인하고 단원별 핵심 개념과 문제 유형을 정리하여 학습 우선순위를 설정합니다."],
+    ["오답과 서술형까지 함께 대비합니다", "풀이 과정에서 반복되는 오답 원인을 확인하고, 계산 과정과 풀이 근거를 작성해야 하는 서술형 문제까지 함께 대비합니다."],
+    ["시험 일정에 맞춰 단계적으로 관리합니다", "중간고사와 기말고사 일정에 맞춰 개념 점검, 유형 연습, 오답 보완, 시험 직전 복습 순서로 수학 내신 학습을 관리합니다."]
+  ]
+};
+
+function isGoyangForeignMathPage(schoolSlug: string, subjectSlug: string) {
+  return schoolSlug === "goyang-foreign-language-high-school" && subjectSlug === "math";
+}
+
 const goyangMathReviews = [
   {
     initial: "김",
@@ -493,7 +519,13 @@ function getForeignSubjectTemplateDetail(school: { name: string; slug: string },
     ? makeDaewonSubjectDetail(daewonSubjectConfigs[subjectSlug])
     : null;
   if (!base) return null;
-  return replaceSchoolInDetail(base, school.name);
+  const detail = replaceSchoolInDetail(base, school.name);
+  if (isGoyangForeignMathPage(school.slug, subjectSlug)) {
+    return { ...detail, features: goyangForeignMathContent.features };
+  }
+  return isSeoulEnglishPage(school.slug, subjectSlug)
+    ? { ...detail, features: seoulEnglishContent.features }
+    : detail;
 }
 
 function getForeignRelatedSubjectCards(school: { availableSubjects: string[]; name: string }) {
@@ -740,12 +772,32 @@ export function generateMetadata({ params }: { params: { school: string; subject
 
   const daewonMetaDetail = getSchoolSubjectTemplateDetail(school, subject.slug);
   if (daewonMetaDetail) {
-    return createMetadata({
+    const metadata = createMetadata({
       title: school.name + " " + daewonMetaDetail.name + " 내신대비 | " + school.name + " " + daewonMetaDetail.name + " 학원·과외",
       description: school.name + " " + daewonMetaDetail.name + " 내신, " + school.name + " " + daewonMetaDetail.name + " 학원·과외 선택 전 확인할 학교 자료 분석, 수행평가, 서술형 대비 흐름을 정리했습니다.",
       path: "/schools/" + school.slug + "/" + subject.slug,
       image: getSchoolAnalysisImage(school)
     });
+    if (isGoyangForeignMathPage(school.slug, subject.slug)) {
+      return {
+        ...metadata,
+        description: goyangForeignMathContent.description,
+        openGraph: {
+          ...metadata.openGraph,
+          description: goyangForeignMathContent.description
+        }
+      };
+    }
+    if (!isSeoulEnglishPage(school.slug, subject.slug)) return metadata;
+
+    return {
+      ...metadata,
+      description: seoulEnglishContent.description,
+      openGraph: {
+        ...metadata.openGraph,
+        description: seoulEnglishContent.description
+      }
+    };
   }
 
   const additionalSubject = goyangAdditionalSubjectDetails[subject.slug as keyof typeof goyangAdditionalSubjectDetails];
